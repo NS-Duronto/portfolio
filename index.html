@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nazmus Sakib | PHP Laravel Developer & Support Engineer</title>
-  <meta name="description" content="Portfolio of Nazmus Sakib, a PHP Laravel Developer and Support Engineer specializing in web application development, maintenance, technical support, and server troubleshooting.">
-  <meta name="keywords" content="PHP Developer, Laravel Developer, Laravel, PHP, Vue.js, JavaScript, MySQL, Web Developer, Support Engineer, Technical Support, Bangladesh, Dhaka, Web Application Development">
+  <meta name="description" content="Portfolio of Nazmus Sakib, Junior Web Developer & Support Engineer at iNiLabs specializing in PHP, Laravel, Vue.js, MySQL, Linux, and Technical Support.">
+  <meta name="keywords" content="Nazmus Sakib, PHP Developer, Laravel Developer, Laravel, PHP, Vue.js, Nuxt, JavaScript, MySQL, Web Developer, Support Engineer, Technical Support, Mirpur Dhaka, Bangladesh">
   <meta name="author" content="Nazmus Sakib">
   
   <!-- Open Graph Meta Tags -->
@@ -15,7 +15,7 @@
   <meta property="og:image" content="https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=1200&q=80">
   
   <!-- Favicon SVG -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='25' fill='%238b5cf6'/><text x='50%' y='68%' font-size='55' font-weight='800' font-family='sans-serif' fill='white' text-anchor='middle'>S</text></svg>">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='25' fill='%2310b981'/%3E%3Ctext x='50%25' y='68%25' font-size='55' font-weight='800' font-family='sans-serif' fill='white' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,14 +28,6 @@
   <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
-
-  <!-- Custom Magnetic Cursor -->
-  <div class="custom-cursor"></div>
-  <div class="cursor-follower"></div>
-
-  <!-- Ambient Aurora Glow Elements -->
-  <div class="ambient-glow ambient-glow-1"></div>
-  <div class="ambient-glow ambient-glow-2"></div>
 
   <!-- Interactive Particle Background Canvas -->
   <canvas id="particles-canvas"></canvas>
@@ -54,23 +46,25 @@
       <!-- Desktop Navigation Menu -->
       <ul class="nav-menu">
         <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
         <li><a href="#skills" class="nav-link">Skills</a></li>
         <li><a href="#projects" class="nav-link">Projects</a></li>
         <li><a href="#terminal" class="nav-link">Terminal</a></li>
-        <li><a href="#services" class="nav-link">Services</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
 
       <!-- Right Action Controls -->
       <div class="nav-actions">
-        <!-- Theme Accent Switcher -->
-        <div class="theme-picker" title="Switch Theme Accent">
-          <button class="theme-dot active" data-set-theme="violet" aria-label="Violet Theme"></button>
-          <button class="theme-dot" data-set-theme="cyan" aria-label="Cyan Theme"></button>
-          <button class="theme-dot" data-set-theme="emerald" aria-label="Emerald Theme"></button>
-          <button class="theme-dot" data-set-theme="sunset" aria-label="Sunset Theme"></button>
-          <button class="theme-dot" data-set-theme="rose" aria-label="Rose Theme"></button>
-        </div>
+        <!-- Color Theme Palette Switcher -->
+        <button id="palette-btn" class="mode-toggle-btn" aria-label="Change Color Theme" title="Change Accent Theme (Emerald, Blue, Laravel Red, Cyan, Amber)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/>
+            <circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/>
+            <circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/>
+            <circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/>
+            <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.563-2.512 5.563-5.563C22 6.5 17.5 2 12 2z"/>
+          </svg>
+        </button>
 
         <!-- Dark / Normal (Light) Mode Toggle -->
         <button id="mode-toggle-btn" class="mode-toggle-btn" aria-label="Toggle Light / Dark Mode" title="Toggle Light / Dark Mode">
@@ -115,7 +109,7 @@
             <!-- Availability Pill -->
             <div class="status-pill">
               <span class="status-dot"></span>
-              <span>Available for Full-Time &amp; Remote Opportunities • Dhaka, Bangladesh</span>
+              <span>Available for Developer &amp; Support Roles • Mirpur, Dhaka, Bangladesh</span>
             </div>
 
             <p class="hero-greeting">Hello, I am Nazmus Sakib</p>
@@ -125,44 +119,64 @@
             </h1>
 
             <div class="hero-role-wrapper">
-              <span>I specialize as a</span>
+              <span>Expertise in</span>
               <span class="typed-text" id="typed-roles"></span>
               <span class="cursor-blink"></span>
             </div>
 
             <p class="hero-desc">
-              I build and maintain reliable web applications with PHP and Laravel, while also handling technical support, troubleshooting, deployment, and server-related issues.
+              4+ years of practical IT experience — specializing in developing Realtime Food Delivery systems, eCommerce &amp; Inventory platforms with POS, reactive Vue.js interfaces, and production technical support.
             </p>
 
             <!-- CTA Buttons -->
             <div class="hero-cta-group">
               <a href="#projects" class="btn btn-primary">
-                <span>View Real Projects</span>
+                <span>View Projects</span>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
               </a>
-              <a href="#contact" class="btn btn-secondary">
-                <span>Get In Touch</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+              <a href="https://wa.me/8801312008372" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="border-color: rgba(37,211,102,0.4); color: #25d366;" title="Chat directly on WhatsApp">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                <span>WhatsApp Chat</span>
               </a>
-              <a href="#terminal" class="btn btn-secondary" title="Open interactive CLI Terminal">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
-                <span>CLI Terminal</span>
+              <a href="#contact" class="btn btn-secondary">
+                <span>Contact Me</span>
               </a>
             </div>
 
-            <!-- Metric Highlights (Realistic) -->
+            <!-- Social Connections Quick Bar -->
+            <div class="hero-social-bar" style="display:flex;align-items:center;gap:0.75rem;margin:1.5rem 0 2rem 0;flex-wrap:wrap;">
+              <span style="font-size:0.85rem;color:var(--text-dim);font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-right:0.25rem;">Direct Links:</span>
+              <a href="https://github.com/NS-Duronto" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub: NS-Duronto" aria-label="GitHub Profile">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              </a>
+              <a href="https://www.linkedin.com/in/nazmus-sakib-678142318/" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn: Nazmus Sakib" aria-label="LinkedIn Profile">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+              </a>
+              <a href="https://wa.me/8801312008372" target="_blank" rel="noopener noreferrer" class="social-link" title="WhatsApp: +880 1312-008372" aria-label="WhatsApp Chat">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+              </a>
+              <a href="mailto:sakibnazmus875@gmail.com" class="social-link" title="Email: sakibnazmus875@gmail.com" aria-label="Send Email">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              </a>
+            </div>
+
+            <!-- Metric Highlights (Total 4+ Years Experience Breakdown) -->
             <div class="hero-stats">
               <div class="stat-item">
-                <h3>1<span>+</span></h3>
-                <p>Years Experience</p>
+                <h3>4<span>+</span></h3>
+                <p>Years IT Total</p>
               </div>
               <div class="stat-item">
-                <h3>8<span>+</span></h3>
-                <p>Software Products</p>
+                <h3>2<span> Yrs</span></h3>
+                <p>Laravel PHP Dev</p>
               </div>
               <div class="stat-item">
-                <h3>100<span>%</span></h3>
-                <p>Production Focused</p>
+                <h3>2<span> Yrs</span></h3>
+                <p>IT Support Eng</p>
+              </div>
+              <div class="stat-item">
+                <h3>1<span> Yr</span></h3>
+                <p>Computer Operator</p>
               </div>
             </div>
           </div>
@@ -238,7 +252,7 @@
         <div class="section-header reveal-on-scroll">
           <div class="section-badge">Professional Background</div>
           <h2 class="section-title">Developing &amp; Supporting <span>Reliable Web Applications</span></h2>
-          <p class="section-subtitle">Junior Web Developer &amp; Support Engineer based in Dhaka, Bangladesh, with practical experience in Laravel development, Vue.js interfaces, MySQL databases, and production technical support.</p>
+          <p class="section-subtitle">Junior Web Developer &amp; Support Engineer based in Dhaka, Bangladesh, with proven experience building Realtime Food Delivery platforms, eCommerce &amp; POS systems, and resolving production server issues.</p>
         </div>
 
         <div class="about-grid">
@@ -246,55 +260,105 @@
           <div class="about-narrative reveal-on-scroll">
             <h3>Building Real-World Software Solutions</h3>
             <p>
-              I am a PHP/Laravel developer and support engineer based in Dhaka, Bangladesh. I work on real-world web applications and software products, with hands-on experience in both active development and technical support.
+              I am a Junior Web Developer and Support Engineer based in Mirpur, Dhaka, Bangladesh. I specialize in backend and full-stack development with PHP, Laravel, and Vue.js, along with extensive experience in MySQL database architecture, API integrations, and production support.
             </p>
             <p>
-              My work involves developing and maintaining Laravel applications, implementing new features, fixing bugs, designing and querying MySQL databases, working with Vue.js frontend interfaces, deploying to Linux/Apache/cPanel servers, and investigating production issues to assist end users. I am continuously improving my software engineering skills and working toward progressing to a Senior Web Developer / Software Engineer role.
+              At iNiLabs, I actively contribute to developing, customizing, and supporting enterprise software products — including <strong>Realtime Food Delivery &amp; Restaurant Management platforms</strong> (live Pusher order tracking, Kitchen Display Systems, thermal AutoPrint integration) and <strong>multi-branch eCommerce &amp; Inventory platforms</strong> with POS billing counters and multi-gateway payments.
             </p>
 
             <div class="about-highlights">
               <div class="highlight-card tilt-card">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-                <h4>Laravel Development</h4>
-                <p>Clean MVC architecture, Eloquent ORM, migrations, and RESTful APIs.</p>
+                <h4>Laravel &amp; Realtime Web</h4>
+                <p>Clean MVC architecture, Eloquent ORM, RESTful APIs, and Pusher/WebSocket live order tracking.</p>
+              </div>
+              <div class="highlight-card tilt-card">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                <h4>eCommerce &amp; Food Delivery</h4>
+                <p>Multi-category catalogs, dynamic cart/checkout, POS billing, SKU inventory, and KDS.</p>
               </div>
               <div class="highlight-card tilt-card">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-                <h4>Technical Support</h4>
-                <p>Investigating application errors, customer issues, and server debugging.</p>
+                <h4>Technical Support &amp; Debugging</h4>
+                <p>Investigating production errors, defect troubleshooting, and end-user technical assistance.</p>
               </div>
               <div class="highlight-card tilt-card">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                <h4>Server &amp; Deployment</h4>
-                <p>Linux (Ubuntu), Apache rewrite rules, cPanel, storage linking, and permissions.</p>
-              </div>
-              <div class="highlight-card tilt-card">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
-                <h4>Vue.js &amp; POS Experience</h4>
-                <p>Vue 3, Pinia, POS cart processing, and receipt printer integrations.</p>
+                <h4>Gateways &amp; AutoPrint</h4>
+                <p>bKash, Nagad, Stripe, PayPal integrations, and thermal printer hardware connections.</p>
               </div>
             </div>
           </div>
 
           <!-- Professional Experience & Education Timeline -->
-          <div class="timeline-wrapper reveal-on-scroll delay-1">
+          <div class="timeline-wrapper reveal-on-scroll delay-1" id="experience">
             <div class="timeline-item">
               <div class="timeline-dot"></div>
-              <div class="timeline-date">Current Position</div>
+              <div class="timeline-date">August 2023 – Present (2 Years)</div>
               <h4>Junior Web Developer &amp; Support Engineer</h4>
-              <div class="timeline-company">IniLabs • Full-Time</div>
+              <div class="timeline-company">iNiLabs • Full-Time</div>
               <p class="timeline-desc">
-                Developing and maintaining web applications using PHP and Laravel. Working with MySQL databases and Vue.js components. Fixing bugs, implementing new features, providing technical support for software product users, investigating server/deployment issues on Linux and cPanel environments, and resolving production problems.
+                Developing, maintaining, and supporting web applications including Realtime Food Delivery systems and eCommerce / POS inventory platforms using PHP, Laravel, and Vue.js. Handling MySQL database schemas, investigating live production issues, configuring Linux/cPanel environments, and providing customer technical support.
               </p>
             </div>
 
             <div class="timeline-item">
               <div class="timeline-dot"></div>
-              <div class="timeline-date">1 Year Professional Training</div>
-              <h4>Web Development – PHP &amp; Laravel</h4>
+              <div class="timeline-date">March 2023 – June 2023</div>
+              <h4>Web Developer (Intern)</h4>
+              <div class="timeline-company">Smart Software Ltd.</div>
+              <p class="timeline-desc">
+                Assisted in web application feature development, QA testing, defect troubleshooting, and collaborative development in agile teams.
+              </p>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-date">2022 – 2023 (1 Year)</div>
+              <h4>IT Executive &amp; Support</h4>
+              <div class="timeline-company">Saralrekha Prokashona Sangstha</div>
+              <p class="timeline-desc">
+                Managed IT infrastructure, computer hardware/peripherals maintenance, LAN connectivity, system software configuration, digital document workflows, and user technical assistance.
+              </p>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-date">2021 – 2022 (1 Year)</div>
+              <h4>Regular Computer Operator</h4>
+              <div class="timeline-company">Media Village</div>
+              <p class="timeline-desc">
+                Full-time computer operations, managing document workflows, data verification, digital entry, and maintaining day-to-day office computing systems with accuracy and speed.
+              </p>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-date">1.5 Years IT Scholarship</div>
+              <h4>Web Development with PHP &amp; Frameworks</h4>
               <div class="timeline-company">IsDB-BISEW IT Scholarship Programme</div>
               <p class="timeline-desc">
-                Comprehensive hands-on technical training program covering PHP, Laravel, MySQL, HTML, CSS, JavaScript, and full lifecycle web application development.
+                Intensive professional training covering PHP, Laravel MVC, MySQL relational database architecture, HTML5, CSS3, and JavaScript.
+              </p>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-date">Professional Career Path</div>
+              <h4>Full Stack Laravel Career Path (PHP, Vue.js &amp; AI)</h4>
+              <div class="timeline-company">Interactive Cares</div>
+              <p class="timeline-desc">
+                Comprehensive training focusing on modern full-stack Laravel engineering, Vue.js frontend reactivity, and modern developer workflows.
+              </p>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-date">Academic Background</div>
+              <h4>MBA &amp; BBA (Hons) in Marketing</h4>
+              <div class="timeline-company">Dhaka Commerce College</div>
+              <p class="timeline-desc">
+                Developed strong analytical thinking, structured communication, and organized management skills.
               </p>
             </div>
           </div>
@@ -344,8 +408,8 @@
           <div class="filter-group">
             <button class="filter-btn active" data-filter="all">All Projects</button>
             <button class="filter-btn" data-filter="laravel">Laravel &amp; Web Apps</button>
-            <button class="filter-btn" data-filter="ecommerce">eCommerce &amp; POS</button>
-            <button class="filter-btn" data-filter="systems">ERP &amp; Management</button>
+            <button class="filter-btn" data-filter="frontend">Frontend &amp; Nuxt</button>
+            <button class="filter-btn" data-filter="systems">Systems &amp; Tools</button>
           </div>
 
           <div class="search-input-wrapper">
@@ -389,170 +453,13 @@
           <div class="terminal-body" id="terminal-body">
             <div class="terminal-line initial-line">
               <span class="terminal-output highlight">Welcome to Nazmus Sakib Terminal [Portfolio CLI]</span><br>
-              <span class="terminal-output">Type <strong style="color:var(--primary-light);">'help'</strong> to see available commands (about, skills, experience, projects, contact, theme [color], clear).</span>
+              <span class="terminal-output">Type <strong style="color:var(--primary-light);">'help'</strong> to see available commands (about, skills, experience, projects, contact, github, linkedin, whatsapp, clear).</span>
             </div>
           </div>
 
           <div class="terminal-input-row" style="padding: 0 1.5rem 1.25rem 1.5rem;">
             <span class="terminal-prompt" id="terminal-prompt-user">sakib@portfolio:~$</span>
             <input type="text" id="terminal-input" class="terminal-input" placeholder="type 'help' and press Enter..." autocomplete="off" spellcheck="false" aria-label="Terminal input">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================================================================
-         7. Services & Capabilities Section
-         ====================================================================== -->
-    <section id="services" class="section-padding">
-      <div class="container">
-        <div class="section-header reveal-on-scroll">
-          <div class="section-badge">What I Deliver</div>
-          <h2 class="section-title">Professional <span>Services &amp; Capabilities</span></h2>
-          <p class="section-subtitle">Practical web development, product maintenance, and technical support services.</p>
-        </div>
-
-        <div class="services-grid">
-          <!-- Service 1 -->
-          <div class="service-card glass-card reveal-on-scroll">
-            <div class="service-icon-box">🐘</div>
-            <h3 class="service-title">Laravel Web Development</h3>
-            <p class="service-desc">Develop and maintain robust web applications using PHP and Laravel with clean MVC structure and RESTful APIs.</p>
-            <ul class="service-features">
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Custom Laravel Application Development</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> REST API &amp; CRUD Implementation</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Eloquent ORM &amp; MySQL Data Modeling</li>
-            </ul>
-          </div>
-
-          <!-- Service 2 -->
-          <div class="service-card glass-card reveal-on-scroll delay-1">
-            <div class="service-icon-box">🛠️</div>
-            <h3 class="service-title">Web Application Maintenance</h3>
-            <p class="service-desc">Bug fixing, feature updates, routine updates, and ongoing maintenance for existing production Laravel applications.</p>
-            <ul class="service-features">
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Feature Modifications &amp; Bug Fixing</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Code Maintenance &amp; Troubleshooting</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Module Enhancements &amp; Refactoring</li>
-            </ul>
-          </div>
-
-          <!-- Service 3 -->
-          <div class="service-card glass-card reveal-on-scroll delay-2">
-            <div class="service-icon-box">🔧</div>
-            <h3 class="service-title">Technical Support</h3>
-            <p class="service-desc">Providing dedicated technical support, investigating application errors, and troubleshooting deployment problems.</p>
-            <ul class="service-features">
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Customer Technical Issue Investigation</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> PHP, Laravel &amp; MySQL Problem Solving</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Production Error Diagnosis</li>
-            </ul>
-          </div>
-
-          <!-- Service 4 -->
-          <div class="service-card glass-card reveal-on-scroll">
-            <div class="service-icon-box">🚀</div>
-            <h3 class="service-title">Laravel Deployment</h3>
-            <p class="service-desc">Assisting with deploying Laravel applications to Linux (Ubuntu), Apache, and cPanel/shared hosting environments.</p>
-            <ul class="service-features">
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Linux &amp; cPanel Deployment Assistance</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Storage Linking &amp; Apache Rewrite Rules</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> PHP Extension &amp; Environment Setup</li>
-            </ul>
-          </div>
-
-          <!-- Service 5 -->
-          <div class="service-card glass-card reveal-on-scroll delay-1">
-            <div class="service-icon-box">💚</div>
-            <h3 class="service-title">Vue.js Frontend Development</h3>
-            <p class="service-desc">Developing and maintaining Vue.js and Vue 3 interfaces and components for web applications and POS systems.</p>
-            <ul class="service-features">
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Vue 3 Components &amp; Pinia State</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> POS Cart, Scanner &amp; Print Integrations</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Responsive HTML5 &amp; Tailwind CSS</li>
-            </ul>
-          </div>
-
-          <!-- Service 6 -->
-          <div class="service-card glass-card reveal-on-scroll delay-2">
-            <div class="service-icon-box">🗄️</div>
-            <h3 class="service-title">Database &amp; Troubleshooting</h3>
-            <p class="service-desc">Working with MySQL/MariaDB databases, writing clean SQL queries, and resolving database compatibility issues.</p>
-            <ul class="service-features">
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Relational Database Design &amp; CRUD</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Database Migrations &amp; Seeders</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Query Debugging &amp; Troubleshooting</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================================================================
-         8. Work Approach & Support Endorsements
-         ====================================================================== -->
-    <section id="testimonials" class="section-padding">
-      <div class="container">
-        <div class="section-header reveal-on-scroll">
-          <div class="section-badge">Client &amp; Team Feedback</div>
-          <h2 class="section-title">Professional <span>Work Ethics</span></h2>
-          <p class="section-subtitle">Commitment to reliable software maintenance, thorough bug resolution, and responsive support.</p>
-        </div>
-
-        <div class="testimonial-slider-container reveal-on-scroll">
-          <div class="testimonial-track" id="testimonial-track">
-            <!-- Slide 1 -->
-            <div class="testimonial-slide">
-              <div class="testimonial-card">
-                <span class="quote-icon">“</span>
-                <p class="testimonial-text">
-                  "Sakib is dedicated, responsive, and systematic when diagnosing application issues. His understanding of Laravel, database operations, and server troubleshooting makes him an asset to any web development team."
-                </p>
-                <div class="testimonial-author">
-                  <div class="author-info">
-                    <h4>Software Engineering Lead</h4>
-                    <p>IniLabs Development Team</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Slide 2 -->
-            <div class="testimonial-slide">
-              <div class="testimonial-card">
-                <span class="quote-icon">“</span>
-                <p class="testimonial-text">
-                  "Whenever we encountered deployment roadblocks on cPanel or Linux web servers, Sakib quickly diagnosed file permissions, storage links, and Apache rewrite issues to get the application running smoothly."
-                </p>
-                <div class="testimonial-author">
-                  <div class="author-info">
-                    <h4>Technical Operations</h4>
-                    <p>Web Products &amp; Support</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Slide 3 -->
-            <div class="testimonial-slide">
-              <div class="testimonial-card">
-                <span class="quote-icon">“</span>
-                <p class="testimonial-text">
-                  "Great attention to detail when working on Laravel features and Vue components. Always willing to learn, take on troubleshooting challenges, and deliver dependable code."
-                </p>
-                <div class="testimonial-author">
-                  <div class="author-info">
-                    <h4>Senior Developer Collaborator</h4>
-                    <p>Web Application Engineering</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Slider Pagination Dots -->
-          <div class="slider-controls" id="testimonial-dots">
-            <!-- Injected dynamically via JS -->
           </div>
         </div>
       </div>
@@ -578,27 +485,71 @@
             </p>
 
             <div class="contact-quick-cards">
+              <!-- Email Card -->
               <div class="quick-contact-item">
                 <div class="quick-icon">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                 </div>
                 <div class="quick-details" style="flex-grow: 1;">
-                  <span>Direct Contact</span>
-                  <strong>Email via form or below</strong>
+                  <span>Email Address</span>
+                  <a href="mailto:sakibnazmus875@gmail.com" style="color:var(--text-main);font-weight:700;word-break:break-all;">sakibnazmus875@gmail.com</a>
                 </div>
-                <button id="copy-email-btn" class="btn btn-secondary btn-sm" title="Copy email">
+                <button id="copy-email-btn" class="btn btn-secondary btn-sm" title="Copy email address">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
                   Copy
                 </button>
               </div>
 
+              <!-- WhatsApp & Phone Card -->
+              <div class="quick-contact-item">
+                <div class="quick-icon" style="color:#25d366;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                </div>
+                <div class="quick-details" style="flex-grow: 1;">
+                  <span>Phone &amp; WhatsApp</span>
+                  <a href="https://wa.me/8801312008372" target="_blank" rel="noopener noreferrer" style="color:var(--text-main);font-weight:700;">+880 1312-008372</a>
+                </div>
+                <a href="https://wa.me/8801312008372" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="color:#25d366;">
+                  Chat
+                </a>
+              </div>
+
+              <!-- GitHub Profile Card -->
+              <div class="quick-contact-item">
+                <div class="quick-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                </div>
+                <div class="quick-details" style="flex-grow: 1;">
+                  <span>GitHub</span>
+                  <a href="https://github.com/NS-Duronto" target="_blank" rel="noopener noreferrer" style="color:var(--text-main);font-weight:700;">github.com/NS-Duronto</a>
+                </div>
+                <a href="https://github.com/NS-Duronto" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                  Visit
+                </a>
+              </div>
+
+              <!-- LinkedIn Profile Card -->
+              <div class="quick-contact-item">
+                <div class="quick-icon" style="color:#0a66c2;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                </div>
+                <div class="quick-details" style="flex-grow: 1;">
+                  <span>LinkedIn</span>
+                  <a href="https://www.linkedin.com/in/nazmus-sakib-678142318/" target="_blank" rel="noopener noreferrer" style="color:var(--text-main);font-weight:700;">Nazmus Sakib</a>
+                </div>
+                <a href="https://www.linkedin.com/in/nazmus-sakib-678142318/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                  Connect
+                </a>
+              </div>
+
+              <!-- Location Card -->
               <div class="quick-contact-item">
                 <div class="quick-icon">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                 </div>
                 <div class="quick-details">
                   <span>Location</span>
-                  <strong>Dhaka, Bangladesh</strong>
+                  <strong>Mirpur-6, Dhaka, Bangladesh</strong>
                 </div>
               </div>
             </div>
@@ -663,19 +614,34 @@
         </a>
 
         <!-- Quick Links -->
-        <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+        <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center;">
           <a href="#about" class="nav-link">About</a>
           <a href="#skills" class="nav-link">Skills</a>
           <a href="#projects" class="nav-link">Projects</a>
           <a href="#terminal" class="nav-link">Terminal</a>
-          <a href="#services" class="nav-link">Services</a>
           <a href="#contact" class="nav-link">Contact</a>
+        </div>
+
+        <!-- Footer Social Icons -->
+        <div class="footer-social-links">
+          <a href="https://github.com/NS-Duronto" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub: NS-Duronto" aria-label="GitHub Profile">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/nazmus-sakib-678142318/" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn: Nazmus Sakib" aria-label="LinkedIn Profile">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://wa.me/8801312008372" target="_blank" rel="noopener noreferrer" class="social-link" title="WhatsApp: +880 1312-008372" aria-label="WhatsApp Chat">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          </a>
+          <a href="mailto:sakibnazmus875@gmail.com" class="social-link" title="Email: sakibnazmus875@gmail.com" aria-label="Send Email">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </a>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p>© 2026 Nazmus Sakib. All rights reserved. Built with pure HTML5, CSS3 &amp; Vanilla JavaScript.</p>
-        <p style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--primary-light);">Dhaka, Bangladesh • Junior Web Developer &amp; Support Engineer</p>
+        <p>© 2026 Nazmus Sakib. All rights reserved.</p>
+        <p style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--primary-light);">Mirpur, Dhaka, Bangladesh • Junior Web Developer &amp; Support Engineer at iNiLabs</p>
       </div>
     </div>
   </footer>

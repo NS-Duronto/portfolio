@@ -4,69 +4,42 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Initialize Theme System & Mode (Dark / Normal Light)
-  initThemeSystem();
+  // 1. Initialize Mode (Dark / Normal Light) & Color Theme
   initModeSystem();
+  initThemeSystem();
 
-  // 2. Initialize Custom Cursor
-  initCustomCursor();
-
-  // 3. Initialize Dynamic Hero Typing
+  // 2. Initialize Dynamic Hero Typing
   initDynamicTyping();
 
-  // 4. Initialize Live Time & Status Clock
+  // 3. Initialize Live Time & Status Clock
   initLiveClock();
 
-  // 5. Initialize Navigation & Scroll-Spy
+  // 4. Initialize Navigation & Scroll-Spy
   initNavigation();
 
-  // 6. Initialize 3D Tilt Cards
-  initTiltEffect();
-
-  // 7. Initialize Projects Showcase & Filter
+  // 5. Initialize Projects Showcase & Filter
   initProjectsShowcase();
 
-  // 8. Initialize Skills Category Switcher & Animated Progress Bars
+  // 6. Initialize Skills Category Switcher
   initSkillsSection();
 
-  // 9. Initialize Testimonials Slider
-  initTestimonialsSlider();
-
-  // 10. Initialize Contact Form & Clipboard
+  // 7. Initialize Contact Form & Clipboard
   initContactInteractions();
 
-  // 11. Initialize Scroll Reveal Observer
+  // 8. Initialize Scroll Reveal Observer
   initScrollReveal();
 });
 
 /* --------------------------------------------------------------------------
-   1. Theme & Mode System
+   1. Theme Mode System (Dark / Normal Light) & Color Accent Presets
    -------------------------------------------------------------------------- */
-function initThemeSystem() {
-  const savedTheme = localStorage.getItem('portfolio-theme') || 'violet';
-  applyTheme(savedTheme);
-
-  const themeDots = document.querySelectorAll('.theme-dot');
-  themeDots.forEach(dot => {
-    dot.addEventListener('click', () => {
-      const theme = dot.getAttribute('data-set-theme');
-      applyTheme(theme);
-    });
-  });
-}
-
-function applyTheme(themeName) {
-  if (themeName === 'violet') {
-    document.documentElement.removeAttribute('data-theme');
-  } else {
-    document.documentElement.setAttribute('data-theme', themeName);
-  }
-  localStorage.setItem('portfolio-theme', themeName);
-
-  document.querySelectorAll('.theme-dot').forEach(dot => {
-    dot.classList.toggle('active', dot.getAttribute('data-set-theme') === themeName);
-  });
-}
+const THEMES = [
+  { id: 'emerald', name: 'Emerald & Mint Tech (Clean)' },
+  { id: 'blue', name: 'Corporate Blue & Azure' },
+  { id: 'laravel', name: 'Laravel Crimson Red' },
+  { id: 'cyan', name: 'Cyber Cyan & Teal' },
+  { id: 'amber', name: 'Warm Amber & Gold' }
+];
 
 function initModeSystem() {
   const savedMode = localStorage.getItem('portfolio-mode') || 'dark';
@@ -92,41 +65,38 @@ function applyMode(mode) {
   localStorage.setItem('portfolio-mode', mode);
 }
 
-/* --------------------------------------------------------------------------
-   2. Custom Fluid Cursor
-   -------------------------------------------------------------------------- */
-function initCustomCursor() {
-  const cursor = document.querySelector('.custom-cursor');
-  const follower = document.querySelector('.cursor-follower');
+function initThemeSystem() {
+  const savedTheme = localStorage.getItem('portfolio-theme') || 'emerald';
+  applyTheme(savedTheme, false);
 
-  if (!cursor || !follower || window.innerWidth < 768) return;
-
-  let mouseX = window.innerWidth / 2;
-  let mouseY = window.innerHeight / 2;
-  let followerX = mouseX;
-  let followerY = mouseY;
-
-  window.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    cursor.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
-  });
-
-  function renderFollower() {
-    followerX += (mouseX - followerX) * 0.15;
-    followerY += (mouseY - followerY) * 0.15;
-    follower.style.transform = `translate3d(${followerX}px, ${followerY}px, 0) translate(-50%, -50%)`;
-    requestAnimationFrame(renderFollower);
+  const paletteBtn = document.getElementById('palette-btn');
+  if (paletteBtn) {
+    paletteBtn.addEventListener('click', () => {
+      const currentTheme = localStorage.getItem('portfolio-theme') || 'emerald';
+      const currentIndex = THEMES.findIndex(t => t.id === currentTheme);
+      const nextIndex = (currentIndex + 1) % THEMES.length;
+      const nextTheme = THEMES[nextIndex];
+      applyTheme(nextTheme.id, true);
+    });
   }
-  requestAnimationFrame(renderFollower);
-
-  // Add hover effect on clickable elements
-  const interactables = document.querySelectorAll('a, button, input, textarea, .glass-card, .project-card, .theme-dot, .skill-tab-btn');
-  interactables.forEach(el => {
-    el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
-    el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
-  });
 }
+
+function applyTheme(themeId, notify = false) {
+  const themeObj = THEMES.find(t => t.id === themeId) || THEMES[0];
+  if (themeObj.id === 'emerald') {
+    document.documentElement.removeAttribute('data-theme');
+  } else {
+    document.documentElement.setAttribute('data-theme', themeObj.id);
+  }
+  localStorage.setItem('portfolio-theme', themeObj.id);
+  
+  if (notify) {
+    showToast(`Color Theme: ${themeObj.name}`, 'info');
+  }
+}
+
+window.applyTheme = applyTheme;
+window.THEMES = THEMES;
 
 /* --------------------------------------------------------------------------
    3. Dynamic Role Typing
@@ -136,12 +106,11 @@ function initDynamicTyping() {
   if (!typedTarget) return;
 
   const roles = [
-    "PHP Laravel Developer",
-    "Junior Web Developer",
-    "Technical Support Engineer",
-    "Web Application Developer",
-    "Laravel Developer",
-    "Support Engineer"
+    "Realtime Food Delivery & eCommerce Developer",
+    "PHP & Laravel Developer (2 Yrs)",
+    "Technical Support Engineer (2 Yrs)",
+    "Vue.js, Realtime Pusher & MySQL",
+    "IT Operations & Computer Support (1 Yr)"
   ];
 
   let roleIndex = 0;
@@ -331,15 +300,17 @@ function initProjectsShowcase() {
       const card = document.createElement('div');
       card.className = 'project-card glass-card reveal-on-scroll is-revealed';
       
+      const githubBtnHtml = proj.githubUrl ? `
+        <a href="${proj.githubUrl}" target="_blank" rel="noopener noreferrer" class="icon-btn" title="View GitHub Repository">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        </a>
+      ` : '';
+
       const liveBtnHtml = proj.liveUrl ? `
         <a href="${proj.liveUrl}" target="_blank" rel="noopener noreferrer" class="icon-btn" title="View Live Demo">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
-      ` : `
-        <span class="icon-btn" style="opacity:0.5;cursor:default;" title="Production Software">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-        </span>
-      `;
+      ` : '';
 
       card.innerHTML = `
         <div class="project-img-wrapper">
@@ -359,6 +330,7 @@ function initProjectsShowcase() {
               Project Details
             </button>
             <div class="project-links">
+              ${githubBtnHtml}
               ${liveBtnHtml}
             </div>
           </div>
@@ -415,24 +387,27 @@ function openProjectModal(projectId) {
     </div>
   `).join('') : '';
 
+  const githubActionHtml = project.githubUrl ? `
+    <a href="${project.githubUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      GitHub Code
+    </a>
+  ` : '';
+
   const demoActionHtml = project.liveUrl ? `
     <a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
       Live Demo
     </a>
-  ` : `
-    <span class="btn btn-secondary btn-sm" style="cursor:default;opacity:0.8;">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-      Production Software
-    </span>
-  `;
+  ` : '';
 
   modalContainer.innerHTML = `
     <img src="${project.image}" alt="${project.title}" class="modal-hero-img">
     <div class="modal-body">
       <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:1rem;">
         <span class="project-category">${project.categoryLabel}</span>
-        <div>
+        <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+          ${githubActionHtml}
           ${demoActionHtml}
         </div>
       </div>
@@ -478,22 +453,25 @@ const skillsData = {
   backend: [
     { name: "PHP (OOP, MVC, Core)", level: 90, icon: "🐘" },
     { name: "Laravel Framework (Routing, Controllers, Blade)", level: 88, icon: "🔴" },
+    { name: "Realtime WebSockets & Pusher (Live Order Tracking)", level: 85, icon: "📡" },
+    { name: "Payment Gateways (bKash, Nagad, Stripe, PayPal)", level: 86, icon: "💳" },
+    { name: "POS Billing & Thermal AutoPrint Integration", level: 88, icon: "🖨️" },
     { name: "Laravel Eloquent ORM & Migrations", level: 86, icon: "⚡" },
-    { name: "RESTful APIs & CRUD Operations", level: 86, icon: "🔌" },
-    { name: "Composer & Laravel Artisan CLI", level: 84, icon: "📦" },
-    { name: "Authentication & Middleware", level: 85, icon: "🔒" }
+    { name: "RESTful APIs & Microservice Endpoints", level: 86, icon: "🔌" },
+    { name: "Authentication, Middleware & Security", level: 85, icon: "🔒" }
   ],
   frontend: [
     { name: "HTML5 & Responsive CSS3", level: 92, icon: "🎨" },
     { name: "JavaScript (ES6+)", level: 82, icon: "💛" },
-    { name: "Vue.js & Vue 3 (Components, Pinia)", level: 80, icon: "💚" },
+    { name: "Vue.js & Vue 3 (Components, Pinia)", level: 82, icon: "💚" },
     { name: "Inertia.js & Vite", level: 78, icon: "⚡" },
     { name: "Bootstrap & Tailwind CSS", level: 88, icon: "📐" }
   ],
   database: [
     { name: "MySQL & MariaDB", level: 88, icon: "🐬" },
-    { name: "Database Design & Relationships", level: 85, icon: "📊" },
-    { name: "SQL Queries & Data Management", level: 82, icon: "🔍" },
+    { name: "eCommerce & Realtime Delivery Database Design", level: 86, icon: "🛒" },
+    { name: "Inventory & Order Tracking Relational Schema", level: 85, icon: "📊" },
+    { name: "SQL Queries, Optimization & Data Integrity", level: 84, icon: "🔍" },
     { name: "Laravel Migrations & Database Seeders", level: 88, icon: "🗄️" }
   ],
   server: [
@@ -553,55 +531,7 @@ function initSkillsSection() {
   renderSkills('backend');
 }
 
-/* --------------------------------------------------------------------------
-   9. Testimonials / Endorsements Slider
-   -------------------------------------------------------------------------- */
-function initTestimonialsSlider() {
-  const track = document.getElementById('testimonial-track');
-  const dotsContainer = document.getElementById('testimonial-dots');
-  const slides = document.querySelectorAll('.testimonial-slide');
-  if (!track || slides.length === 0) return;
 
-  let currentIndex = 0;
-  let autoplayTimer = null;
-
-  dotsContainer.innerHTML = '';
-  slides.forEach((_, idx) => {
-    const dot = document.createElement('button');
-    dot.className = `slider-dot ${idx === 0 ? 'active' : ''}`;
-    dot.setAttribute('aria-label', `Slide ${idx + 1}`);
-    dot.addEventListener('click', () => {
-      goToSlide(idx);
-      resetAutoplay();
-    });
-    dotsContainer.appendChild(dot);
-  });
-
-  function goToSlide(index) {
-    currentIndex = index;
-    track.style.transform = `translateX(-${currentIndex * 100}%)`;
-    
-    document.querySelectorAll('.slider-dot').forEach((dot, idx) => {
-      dot.classList.toggle('active', idx === currentIndex);
-    });
-  }
-
-  function nextSlide() {
-    currentIndex = (currentIndex + 1) % slides.length;
-    goToSlide(currentIndex);
-  }
-
-  function startAutoplay() {
-    autoplayTimer = setInterval(nextSlide, 6000);
-  }
-
-  function resetAutoplay() {
-    clearInterval(autoplayTimer);
-    startAutoplay();
-  }
-
-  startAutoplay();
-}
 
 /* --------------------------------------------------------------------------
    10. Contact Form, Email Copy & Toasts
@@ -613,11 +543,11 @@ function initContactInteractions() {
   // Clipboard copy
   if (copyEmailBtn) {
     copyEmailBtn.addEventListener('click', () => {
-      const email = "[Your Email]";
+      const email = "sakibnazmus875@gmail.com";
       navigator.clipboard.writeText(email).then(() => {
-        showToast("Email copied to clipboard!", 'success');
+        showToast("Email copied: sakibnazmus875@gmail.com", 'success');
       }).catch(() => {
-        showToast("Email: [Your Email]", 'info');
+        showToast("Email: sakibnazmus875@gmail.com", 'info');
       });
     });
   }

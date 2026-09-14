@@ -21,8 +21,12 @@ class InteractiveTerminal {
       projects: () => this.projectsCommand(),
       experience: () => this.experienceCommand(),
       contact: () => this.contactCommand(),
+      github: () => this.githubCommand(),
+      linkedin: () => this.linkedinCommand(),
+      whatsapp: () => this.whatsappCommand(),
+      email: () => this.emailCommand(),
       clear: () => this.clearCommand(),
-      whoami: () => `<span class="terminal-output highlight">sakib@portfolio:~$ Nazmus Sakib — Junior Web Developer & Support Engineer based in Dhaka, Bangladesh.</span>`,
+      whoami: () => `<span class="terminal-output highlight">sakib@portfolio:~$ Nazmus Sakib — Junior Web Developer & Support Engineer based in Mirpur, Dhaka, Bangladesh.</span>`,
       date: () => `<span class="terminal-output">${new Date().toUTCString()}</span>`,
       theme: (args) => this.themeCommand(args),
       mode: (args) => this.modeCommand(args),
@@ -78,8 +82,7 @@ class InteractiveTerminal {
     const cmd = parts[0].toLowerCase();
     const args = parts.slice(1);
 
-    // Print command line
-    this.appendLine(`<span class="terminal-prompt">sakib@portfolio:~$</span> <span>${this.escapeHTML(input)}</span>`);
+    this.appendLine(`<div class="terminal-input-echo"><span class="terminal-prompt">${this.terminalPrompt ? this.terminalPrompt.textContent : 'sakib@portfolio:~$'}</span> <span>${this.escapeHTML(input)}</span></div>`);
 
     if (this.commands[cmd]) {
       const output = this.commands[cmd](args);
@@ -97,11 +100,15 @@ class InteractiveTerminal {
   <span style="color:var(--secondary);font-weight:700;">AVAILABLE COMMANDS:</span><br>
   &nbsp;&nbsp;<strong>about</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Professional background & developer profile<br>
   &nbsp;&nbsp;<strong>skills</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Technical skills (PHP, Laravel, MySQL, Vue.js, Linux)<br>
-  &nbsp;&nbsp;<strong>experience</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Professional role & responsibilities at IniLabs<br>
-  &nbsp;&nbsp;<strong>projects</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Real-world projects worked on<br>
+  &nbsp;&nbsp;<strong>experience</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Professional role & responsibilities at iNiLabs<br>
+  &nbsp;&nbsp;<strong>projects</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Real GitHub repositories & projects<br>
+  &nbsp;&nbsp;<strong>github</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Open GitHub profile (NS-Duronto)<br>
+  &nbsp;&nbsp;<strong>linkedin</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Open LinkedIn profile<br>
+  &nbsp;&nbsp;<strong>whatsapp</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Chat on WhatsApp (+880 1312-008372)<br>
+  &nbsp;&nbsp;<strong>email</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Display email address<br>
+  &nbsp;&nbsp;<strong>contact</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- All contact channels & location<br>
   &nbsp;&nbsp;<strong>mode [dark|light]</strong>&nbsp;- Switch between Dark Mode and Normal/Light Mode<br>
-  &nbsp;&nbsp;<strong>theme [color]</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Switch accent theme (violet, cyan, emerald, sunset, rose)<br>
-  &nbsp;&nbsp;<strong>contact</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Location & contact details<br>
+  &nbsp;&nbsp;<strong>theme [color]</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Switch accent theme (emerald, blue, laravel, cyan, amber)<br>
   &nbsp;&nbsp;<strong>date</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Display current date & UTC time<br>
   &nbsp;&nbsp;<strong>whoami</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Print developer positioning<br>
   &nbsp;&nbsp;<strong>clear</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Clear the terminal screen
@@ -111,56 +118,87 @@ class InteractiveTerminal {
   aboutCommand() {
     return `<div class="terminal-output">
   <span class="highlight">NAZMUS SAKIB | Junior Web Developer & Support Engineer</span><br>
-  Based in Dhaka, Bangladesh.<br>
-  I build and maintain reliable web applications using PHP and Laravel, while also handling technical support, server troubleshooting, deployment, and customer assistance for production software.
+  Based in Mirpur, Dhaka, Bangladesh.<br>
+  I build and maintain dependable web applications using PHP, Laravel, Vue.js, and MySQL, while also handling end-user technical support, application debugging, and server troubleshooting.
 </div>`;
   }
 
   experienceCommand() {
     return `<div class="terminal-output">
-  <span class="highlight">CURRENT ROLE: IniLabs</span><br>
-  <strong>Position:</strong> Junior Web Developer & Support Engineer<br>
-  <strong>Responsibilities:</strong><br>
-  • Developing and maintaining PHP/Laravel web applications & MySQL databases<br>
-  • Working on Vue.js frontend components, POS modules, and bug fixing<br>
-  • Handling technical support, investigating application & deployment errors<br>
-  • Server configuration & troubleshooting on Linux, Apache, and cPanel environments
+  <span class="highlight">PROFESSIONAL EXPERIENCE:</span><br>
+  • <strong>Junior Web Developer & Support Engineer — iNiLabs</strong> (Aug 2023 – Present)<br>
+  &nbsp;&nbsp;- Developing & maintaining Laravel/Vue.js applications (e-commerce, restaurant & school management)<br>
+  &nbsp;&nbsp;- Handling live production issues, SQL query optimization & server troubleshooting (Linux/cPanel)<br>
+  • <strong>IT Executive — Saralrekha Prokashona Sangstha</strong> (2022 – 2023)<br>
+  &nbsp;&nbsp;- IT support, computer & peripheral maintenance, LAN/network operations<br>
+  • <strong>Web Developer Intern — Smart Software Ltd.</strong> (Mar 2023 – Jun 2023)<br>
+  &nbsp;&nbsp;- Web application testing, development support & agile workflows
 </div>`;
   }
 
   skillsCommand() {
     return `<div class="terminal-output">
   <span class="highlight">PRACTICAL TECHNICAL SKILLS:</span><br>
-  • <strong style="color:var(--primary-light)">Backend:</strong> PHP, Laravel, REST API, MVC, Eloquent ORM, Artisan, Composer<br>
-  • <strong style="color:var(--primary-light)">Frontend:</strong> HTML5, CSS3, JavaScript, Vue.js, Vue 3, Inertia.js, Vite, Bootstrap, Tailwind CSS<br>
-  • <strong style="color:var(--primary-light)">Database:</strong> MySQL, MariaDB, Database Design, SQL, Laravel Migrations<br>
-  • <strong style="color:var(--primary-light)">Server & Deployment:</strong> Linux (Ubuntu), Apache, cPanel, Storage Linking, Rewrite Rules, Permissions<br>
-  • <strong style="color:var(--primary-light)">Support & Troubleshooting:</strong> Application debugging, PHP/server error investigation, Customer support
+  • <strong style="color:var(--primary-light)">Backend:</strong> PHP 8.2, Laravel, Realtime Pusher/WebSockets, REST APIs, Eloquent ORM, Payment Gateways (bKash, Nagad, Stripe, PayPal)<br>
+  • <strong style="color:var(--primary-light)">Specialized Domains:</strong> Realtime Food Delivery, eCommerce & POS, Multi-Branch Inventory Management, KDS & Thermal AutoPrint<br>
+  • <strong style="color:var(--primary-light)">Frontend:</strong> Vue.js, Vue 3, Nuxt 3, JavaScript (ES6+), HTML5, CSS3, Blade, Bootstrap, Tailwind<br>
+  • <strong style="color:var(--primary-light)">Database:</strong> MySQL, MariaDB, Relational Database Architecture & Query Optimization<br>
+  • <strong style="color:var(--primary-light)">Server & Support:</strong> Linux (Ubuntu), Apache, cPanel Hosting, Production Debugging & Technical Support<br>
+  • <strong style="color:var(--primary-light)">Tools:</strong> Git, GitHub, VS Code, Postman, Composer
 </div>`;
   }
 
   projectsCommand() {
     return `<div class="terminal-output">
-  <span class="highlight">PROJECTS WORKED ON:</span><br>
-  1. <strong>TIMS</strong> - Training Institute Management System (Demo: <a href="https://lms.rovixor.com/" target="_blank" style="color:var(--primary-light);text-decoration:underline;">lms.rovixor.com</a>)<br>
-  2. <strong>Shopperzz</strong> - PWA eCommerce CMS with POS & WhatsApp Ordering (Laravel, Vue 3, Pinia)<br>
-  3. <strong>FoodKing</strong> - Restaurant eCommerce & Ordering System (PrintNode POS integration, Support)<br>
-  4. <strong>GoSchool ERP</strong> - School & Education Management ERP (Students, Exams, Fees, HR)<br>
-  5. <strong>ShopKing</strong> - eCommerce & Retail Software Product<br>
-  6. <strong>QuickPass</strong> - Visitor Management System<br>
-  7. <strong>FoodScan</strong> - Digital Food Menu & Ordering<br>
-  8. <strong>iTest</strong> - Online Assessment & Examination Platform<br>
-  9. <strong>Bontado</strong> - Multi-Tenant SaaS Web Application<br>
-  <em>* Explore the Featured Projects section above for full descriptions and features.</em>
+  <span class="highlight">REAL-WORLD PRODUCTION & GITHUB PROJECTS:</span><br>
+  1. <strong>Realtime Food Delivery & Restaurant Platform</strong> - Live order tracking, Pusher WebSockets, KDS, rider dispatch, POS counter & thermal printing (<a href="https://github.com/NS-Duronto/Restaurant-Management-System" target="_blank" style="color:var(--primary-light);text-decoration:underline;">View Code</a>)<br>
+  2. <strong>Modern eCommerce & Inventory Management Platform</strong> - Dynamic product catalog, variant SKU inventory, POS checkout, invoice PDF & payment gateways<br>
+  3. <strong>Visitor-Management-System</strong> - Digital visitor security logging & passes (<a href="https://github.com/NS-Duronto/Visitor-Management-System" target="_blank" style="color:var(--primary-light);text-decoration:underline;">View Code</a>)<br>
+  4. <strong>LMS</strong> - Learning Management System for courses & enrollments (<a href="https://github.com/NS-Duronto/LMS" target="_blank" style="color:var(--primary-light);text-decoration:underline;">View Code</a>)<br>
+  5. <strong>Nuxt_Practice</strong> - Modern web application with Nuxt 3, Vue 3 & TypeScript (<a href="https://github.com/NS-Duronto/Nuxt_Practice" target="_blank" style="color:var(--primary-light);text-decoration:underline;">View Code</a>)<br>
+  6. <strong>Photocard</strong> - Card customization & generation web app (<a href="https://github.com/NS-Duronto/photocard" target="_blank" style="color:var(--primary-light);text-decoration:underline;">View Code</a>)<br>
+  7. <strong>Tafsir</strong> - Digital Quranic reference web platform (<a href="https://github.com/NS-Duronto/tafsir" target="_blank" style="color:var(--primary-light);text-decoration:underline;">View Code</a>)<br>
+  8. <strong>Portfolio & CLI</strong> - Interactive Developer Portfolio (<a href="https://github.com/NS-Duronto/portfolio" target="_blank" style="color:var(--primary-light);text-decoration:underline;">View Code</a>)<br>
+  <em>* Explore the Real-World Projects section above for full details.</em>
+</div>`;
+  }
+
+  githubCommand() {
+    return `<div class="terminal-output success">
+  <strong>GitHub:</strong> <a href="https://github.com/NS-Duronto" target="_blank" style="color:var(--primary-light);text-decoration:underline;">https://github.com/NS-Duronto</a><br>
+  Explore open-source repositories and code contributions.
+</div>`;
+  }
+
+  linkedinCommand() {
+    return `<div class="terminal-output success">
+  <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/nazmus-sakib-678142318/" target="_blank" style="color:var(--primary-light);text-decoration:underline;">https://www.linkedin.com/in/nazmus-sakib-678142318/</a><br>
+  Connect with Nazmus Sakib for career opportunities and networking.
+</div>`;
+  }
+
+  whatsappCommand() {
+    return `<div class="terminal-output success">
+  <strong>WhatsApp:</strong> <a href="https://wa.me/8801312008372" target="_blank" style="color:var(--primary-light);text-decoration:underline;">+880 1312-008372</a> (01312008372)<br>
+  Click the link above to start a direct WhatsApp chat.
+</div>`;
+  }
+
+  emailCommand() {
+    return `<div class="terminal-output success">
+  <strong>Email:</strong> <a href="mailto:sakibnazmus875@gmail.com" style="color:var(--primary-light);text-decoration:underline;">sakibnazmus875@gmail.com</a>
 </div>`;
   }
 
   contactCommand() {
     return `<div class="terminal-output success">
-  Location: Dhaka, Bangladesh<br>
-  Role: Junior Web Developer & Support Engineer<br>
-  Specialization: PHP / Laravel Development & Technical Support<br>
-  Get in touch via the Contact section below.
+  <span class="highlight">CONTACT INFORMATION:</span><br>
+  • <strong>Email:</strong> <a href="mailto:sakibnazmus875@gmail.com" style="color:var(--primary-light);text-decoration:underline;">sakibnazmus875@gmail.com</a><br>
+  • <strong>WhatsApp:</strong> <a href="https://wa.me/8801312008372" target="_blank" style="color:var(--primary-light);text-decoration:underline;">+880 1312-008372</a> (01312008372)<br>
+  • <strong>GitHub:</strong> <a href="https://github.com/NS-Duronto" target="_blank" style="color:var(--primary-light);text-decoration:underline;">github.com/NS-Duronto</a><br>
+  • <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/nazmus-sakib-678142318/" target="_blank" style="color:var(--primary-light);text-decoration:underline;">linkedin.com/in/nazmus-sakib-678142318</a><br>
+  • <strong>Location:</strong> Mirpur, Dhaka, Bangladesh<br>
+  • <strong>Status:</strong> Open to Full-Time, Remote & Contract roles
 </div>`;
   }
 
@@ -184,19 +222,22 @@ class InteractiveTerminal {
   }
 
   themeCommand(args) {
+    const validThemes = ['emerald', 'blue', 'laravel', 'cyan', 'amber'];
     if (!args || args.length === 0) {
-      return `<span class="terminal-output error">Usage: theme [violet | cyan | emerald | sunset | rose]</span>`;
+      return `<span class="terminal-output error">Usage: theme [${validThemes.join(' | ')}]</span>`;
     }
     const themeName = args[0].toLowerCase();
-    const validThemes = ['violet', 'cyan', 'emerald', 'sunset', 'rose'];
     if (validThemes.includes(themeName)) {
-      document.documentElement.setAttribute('data-theme', themeName);
-      localStorage.setItem('portfolio-theme', themeName);
-      
-      // Update UI theme dots
-      document.querySelectorAll('.theme-dot').forEach(dot => {
-        dot.classList.toggle('active', dot.getAttribute('data-set-theme') === themeName);
-      });
+      if (window.applyTheme) {
+        window.applyTheme(themeName, false);
+      } else {
+        if (themeName === 'emerald') {
+          document.documentElement.removeAttribute('data-theme');
+        } else {
+          document.documentElement.setAttribute('data-theme', themeName);
+        }
+        localStorage.setItem('portfolio-theme', themeName);
+      }
 
       return `<span class="terminal-output success">Theme successfully switched to: <strong>${themeName}</strong></span>`;
     } else {
