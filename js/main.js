@@ -28,6 +28,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 8. Initialize Scroll Reveal Observer
   initScrollReveal();
+
+  // 9. Initialize 3D Tilt for Hero Avatar & Spotlight Cards
+  initTiltEffect();
 });
 
 /* --------------------------------------------------------------------------
@@ -106,11 +109,11 @@ function initDynamicTyping() {
   if (!typedTarget) return;
 
   const roles = [
-    "Realtime Food Delivery & eCommerce Developer",
-    "PHP & Laravel Developer (2 Yrs)",
-    "Technical Support Engineer (2 Yrs)",
+    "Realtime Food Delivery & eCommerce",
+    "PHP & Laravel Web Applications",
+    "Technical Support & Server Ops",
     "Vue.js, Realtime Pusher & MySQL",
-    "IT Operations & Computer Support (1 Yr)"
+    "REST APIs & Database Architecture"
   ];
 
   let roleIndex = 0;
@@ -624,4 +627,53 @@ function initScrollReveal() {
   } else {
     revealElements.forEach(el => el.classList.add('is-revealed'));
   }
+}
+
+/* --------------------------------------------------------------------------
+   12. 3D Perspective Tilt Interaction on Hero Frame & Cards
+   -------------------------------------------------------------------------- */
+function initTiltEffect() {
+  const tiltCards = document.querySelectorAll('.tilt-card');
+  if (!tiltCards.length) return;
+
+  // Skip on touch devices or if user prefers reduced motion
+  if (window.matchMedia('(pointer: coarse)').matches || 
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    return;
+  }
+
+  tiltCards.forEach(card => {
+    let bounds;
+    let reqId = null;
+
+    function updateBounds() {
+      bounds = card.getBoundingClientRect();
+    }
+
+    function onMouseMove(e) {
+      if (!bounds) updateBounds();
+      const mouseX = e.clientX - bounds.left;
+      const mouseY = e.clientY - bounds.top;
+      const xPct = (mouseX / bounds.width) - 0.5;
+      const yPct = (mouseY / bounds.height) - 0.5;
+
+      const rotateX = -yPct * 10;
+      const rotateY = xPct * 10;
+
+      if (reqId) cancelAnimationFrame(reqId);
+      reqId = requestAnimationFrame(() => {
+        card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-4px)`;
+      });
+    }
+
+    function onMouseLeave() {
+      if (reqId) cancelAnimationFrame(reqId);
+      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)';
+      bounds = null;
+    }
+
+    card.addEventListener('mouseenter', updateBounds, { passive: true });
+    card.addEventListener('mousemove', onMouseMove, { passive: true });
+    card.addEventListener('mouseleave', onMouseLeave, { passive: true });
+  });
 }
